@@ -1,0 +1,20 @@
+on:
+  schedule:
+    - cron: "0 0/2 * * *" # Run every two hours
+  workflow_dispatch:
+
+jobs:
+  my_job:
+    name: test list of files
+    runs-on: ubuntu-22.04
+        # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/checkout@v6
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          ls ${{ github.workspace }}
